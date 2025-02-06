@@ -1,0 +1,25 @@
+.root {
+  .radio {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #d0d7de;
+    border-radius: 100%;
+    display: block;
+    padding: 2px;
+  }
+  input {
+    display: none;
+  }
+
+  &:has(input:checked) {
+    .radio {
+      border: 2px solid var(--primary);
+    }
+    .radio > div {
+      width: 100%;
+      height: 100%;
+      border-radius: 100%;
+      background-color: var(--primary);
+    }
+  }
+}

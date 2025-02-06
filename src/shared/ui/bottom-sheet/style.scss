@@ -1,0 +1,41 @@
+[data-rsbs-overlay='true'] {
+  z-index: 9999 !important;
+}
+[data-rsbs-backdrop='true'] {
+  z-index: 9999 !important;
+  pointer-events: none;
+}
+
+[data-rsbs-root]:after {
+  z-index: 9999 !important;
+}
+
+[data-rsbs-root='true'] {
+  z-index: 9999 !important;
+}
+
+.bottomSheetSibling {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.bottomSheetTitleDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+
+  h1 {
+    color: #222;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: normal;
+  }
+  svg {
+    color: #9ba1a7;
+    width: 24px;
+    height: 24px;
+  }
+}
