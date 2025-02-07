@@ -1,3 +1,11 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# and https://github.com/github/gitignore for examples
+
+# local env files (followinf dotenv-flow / nextjs convention)
+
+.env.local
+.env.*.local
+
 # Logs
 logs
 *.log
@@ -10,12 +18,12 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+build
 *.local
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
-!.vscode/launch.json
 .idea
 .DS_Store
 *.suo
@@ -23,12 +31,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-/test-results/
-/playwright-report/
-/playwright/.cache/
 
-# storybook
-storybook-static
+# ========== Yarn ==========
 
-# tests
-/coverage/
+# https://yarnpkg.com/advanced/qa#which-files-should-be-gitignored but nested for e2e directories
+.yarn
+node_modules

@@ -1,29 +1,21 @@
-import { createRouter } from "@tanstack/react-router";
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
-import { routeTree } from "./routeTree.gen.ts";
-import "./styles/tailwind.css";
-import './common/i18n'
+import 'alif-ui/styles.css';
+import './index.css';
 
-const router = createRouter({ routeTree });
+import ReactDOM from 'react-dom/client';
+import { Toaster } from 'react-hot-toast';
+import { queryClient } from 'utils/reactQuery';
 
-declare module "@tanstack/react-router" {
-	interface Register {
-		// This infers the type of our router and registers it across your entire project
-		router: typeof router;
-	}
+import { QueryClientProvider } from '@tanstack/react-query';
+
+import { App } from './app/App';
+
+function Main() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <App />
+      <Toaster />
+    </QueryClientProvider>
+  );
 }
 
-const rootElement = document.querySelector("#root") as Element;
-
-if (!rootElement.innerHTML) {
-	const root = ReactDOM.createRoot(rootElement);
-	root.render(
-		<React.StrictMode>
-			<React.Suspense fallback="loading">
-				<App router={router} />
-			</React.Suspense>
-		</React.StrictMode>
-	);
-}
+ReactDOM.createRoot(document.querySelector('#root')!).render(<Main />);
