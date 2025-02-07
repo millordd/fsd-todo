@@ -1,19 +1,8 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ['./src/**/*.{tsx,ts}'],
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {},
   },
-  corePlugins: {
-    preflight: true,
-  },
-  plugins: [
-    ({ addBase }) => {
-      addBase({
-        html: {
-          fontFamily: 'fontAlsHauss',
-        },
-      });
-    },
-  ],
+  plugins: [],
 };
