@@ -1,6 +1,6 @@
-// src/features/todoList/ui/TodoTable.tsx
 import { useReactTable, getCoreRowModel, ColumnDef, flexRender } from '@tanstack/react-table';
 import { useGetTodos } from 'entities/todo/service';
+import { useState } from 'react';
 
 
 type Todo = {
@@ -9,14 +9,6 @@ type Todo = {
     completed: boolean;
     userId: number;
 };
-// const todos  = [
-//   {
-//     id:1,
-//     todo:"String",
-//     completed:true,
-//     userId:1
-//   }
-// ]
 
 const columns: ColumnDef<Todo>[] = [
   { accessorKey: 'id', header: 'ID' },
@@ -26,13 +18,17 @@ const columns: ColumnDef<Todo>[] = [
 ];
 
 export const TodoTable = () => {
-  const { data: todos } = useGetTodos();
+  const [page, setPage] = useState(0);
+  const limit = 30;
+
+  const { data: todos } = useGetTodos(page * limit, limit);
+
   const table = useReactTable({
     data: todos?.todos || [],
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
-console.log(todos)
+
   return (
     <div className="overflow-x-auto rounded-lg shadow-lg">
       <table className="w-full border border-gray-700 text-left text-sm text-gray-300">
@@ -59,6 +55,28 @@ console.log(todos)
           ))}
         </tbody>
       </table>
+
+      {/* Pagination Controls */}
+      <div className="flex justify-between items-center mt-4">
+        <button
+          onClick={() => setPage((prev) => Math.max(prev - 1, 0))}
+          disabled={page === 0}
+          className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50"
+        >
+          Previous
+        </button>
+        <span className="text-gray-300">
+          Page {page + 1} of {Math.ceil((todos?.total ?? 0) / limit)}
+        </span>
+        <button
+          onClick={() => setPage((prev) => prev + 1)}
+          disabled={(todos?.todos?.length ?? 0) < limit}
+          className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50"
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 };
+
