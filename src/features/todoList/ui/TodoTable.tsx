@@ -1,5 +1,6 @@
 import { useReactTable, getCoreRowModel, ColumnDef, flexRender } from '@tanstack/react-table';
-import { useGetTodos } from 'entities/todo/service';
+import { useGetTodos } from 'entities/todo/api/fetchTodos';
+
 import { useState } from 'react';
 
 
@@ -28,7 +29,7 @@ export const TodoTable = () => {
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
- console.log(todos)
+
   return (
     <div className="overflow-x-auto rounded-lg shadow-lg">
       <table className="w-full border border-gray-700 text-left text-sm text-gray-300">
