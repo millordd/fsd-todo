@@ -21,9 +21,7 @@ const columns: ColumnDef<Todo>[] = [
 export const TodoTable = () => {
   const [page, setPage] = useState(0);
   const limit = 15;
-
   const { data: todos } = useGetTodos(page * limit, limit);
-
   const table = useReactTable({
     data: todos?.todos || [],
     columns,
