@@ -1,0 +1,42 @@
+.root {
+}
+
+.root.primary {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.root.white {
+  background: #ffffff;
+  color: #222222;
+}
+
+.root.transparent {
+  background: transparent;
+  color: var(--primary);
+}
+
+.root.secondary {
+  background: #f7f8f9;
+}
+.root.outlined {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+.root.m {
+  border-radius: 16px;
+  height: 52px;
+  padding: 14px 12px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 550;
+  line-height: normal;
+}
+
+.root:disabled {
+  background: #d0d7de;
+  color: #9ba1a7;
+  cursor: not-allowed;
+  border: none;
+}
