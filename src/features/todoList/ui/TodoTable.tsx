@@ -19,7 +19,7 @@ const columns: ColumnDef<Todo>[] = [
 
 export const TodoTable = () => {
   const [page, setPage] = useState(0);
-  const limit = 30;
+  const limit = 15;
 
   const { data: todos } = useGetTodos(page * limit, limit);
 
@@ -28,7 +28,7 @@ export const TodoTable = () => {
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
-
+ console.log(todos)
   return (
     <div className="overflow-x-auto rounded-lg shadow-lg">
       <table className="w-full border border-gray-700 text-left text-sm text-gray-300">
@@ -56,8 +56,7 @@ export const TodoTable = () => {
         </tbody>
       </table>
 
-      {/* Pagination Controls */}
-      <div className="flex justify-between items-center mt-4">
+      <div className="flex justify-between items-center  bg-slate-800">
         <button
           onClick={() => setPage((prev) => Math.max(prev - 1, 0))}
           disabled={page === 0}

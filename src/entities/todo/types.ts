@@ -1,4 +1,4 @@
-interface ITodo {
+export interface ITodo {
     id: number;
     todo: string;
     completed: boolean;
@@ -11,3 +11,6 @@ interface ITodo {
     skip: number;
     limit: number;
   }
+
+
+ export  type IAddTodoPayload = Omit<ITodo, 'id'>
