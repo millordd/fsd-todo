@@ -1,6 +1,6 @@
 import { instance, queryClient } from "shared/utils";
 import { useMutation } from "@tanstack/react-query";
-import { IAddTodoPayload, ITodo, ITodosResponse } from "../types";
+import { IAddTodoPayload, ITodo, ITodosResponse } from "../model/types";
 
 
  const addTodo = async (addPayload:IAddTodoPayload): Promise<ITodo> => {

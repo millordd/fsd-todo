@@ -1,5 +1,5 @@
 import { instance } from "shared/utils";
-import { ITodosResponse } from "../types";
+import { ITodosResponse } from "../model/types";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 
 const fetchTodos = async (skip:number,limit:number): Promise<ITodosResponse> => {
