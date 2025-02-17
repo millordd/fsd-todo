@@ -21,7 +21,6 @@ const fetchTodos = async (skip:number,limit:number): Promise<ITodosResponse> => 
     }
   };
 
-
   export const useGetTodos = (skip:number,limit:number) => {
     return useQuery({
       queryKey: ['todos',skip,limit],
@@ -30,7 +29,6 @@ const fetchTodos = async (skip:number,limit:number): Promise<ITodosResponse> => 
        
     });
   };
-
 
 export const useAddTodo = () => {
   return useMutation(
